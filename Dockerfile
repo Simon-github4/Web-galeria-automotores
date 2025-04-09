@@ -6,6 +6,7 @@
 #COPY --from=build /alsina-Web/target/demo-0.0.1-SNAPSHOT.jar alsina-Web.jar 
 #EXPOSE 8080 
 #CMD ["java", "-jar", "alsina-Web.jar"]
+
 FROM openjdk:21
 COPY src/main/frontend/ /demo-0.0.1-SNAPSHOT.jar/src/main/frontend/
 VOLUME /tmp
