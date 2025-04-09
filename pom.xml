@@ -99,6 +99,12 @@
 
 			</dependencies>
 			<build>
+				<resources>
+					 <resource>
+					    <directory>src/main/frontend</directory>
+					    <targetPath>META-INF/resources/frontend</targetPath>
+					 </resource>
+  				</resources>
 				<plugins>
 					<plugin>
 						<groupId>com.vaadin</groupId>
