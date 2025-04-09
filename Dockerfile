@@ -8,7 +8,7 @@
 #CMD ["java", "-jar", "alsina-Web.jar"]
 
 FROM openjdk:21
-COPY src/main/frontend/ /demo-0.0.1-SNAPSHOT.jar/src/main/frontend/
+#COPY src/main/frontend/ /demo-0.0.1-SNAPSHOT.jar/src/main/frontend/
 VOLUME /tmp
 EXPOSE 8080
 ADD ./target/demo-0.0.1-SNAPSHOT.jar web-automotores.jar
