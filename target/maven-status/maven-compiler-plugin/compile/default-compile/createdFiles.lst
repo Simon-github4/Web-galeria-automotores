@@ -1,7 +1,6 @@
 alsina\web\Service\ControllerRestDesktopApp.class
 alsina\web\entities\Sucursal.class
 alsina\web\entities\Usuario.class
-alsina\web\Service\ClienteRestVehiculos$1.class
 alsina\web\views\GeneralInfoView.class
 alsina\web\Service\ControllerRestDesktopApp$3.class
 alsina\web\views\MainLayout.class
@@ -11,14 +10,11 @@ alsina\web\entities\Vehiculo.class
 alsina\web\entities\Cuota.class
 alsina\web\entities\Venta.class
 alsina\web\entities\Alquiler.class
-alsina\web\Service\ClienteRestVehiculos.class
 alsina\web\entities\Compra.class
 alsina\web\Service\ControllerRestDesktopApp$2.class
-alsina\web\Service\ClienteRestVehiculos$4.class
 alsina\web\entities\VehiculoAlquilable.class
 alsina\web\Service\DesktopAppService.class
 alsina\web\views\VehicleCard.class
-alsina\web\Service\ClienteRestVehiculos$3.class
 alsina\web\views\MainLayout$Toolbar.class
 alsina\web\Service\ControllerRestDesktopApp$1.class
 alsina\web\views\CalendarGridView.class
@@ -31,4 +27,3 @@ alsina\web\entities\Marca.class
 alsina\web\views\ImageCarousel.class
 alsina\web\views\SellCarsView.class
 alsina\web\entities\VehiculoVenta.class
-alsina\web\Service\ClienteRestVehiculos$2.class
