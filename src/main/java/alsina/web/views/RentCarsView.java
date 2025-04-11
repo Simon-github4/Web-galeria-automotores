@@ -20,8 +20,8 @@ import jakarta.annotation.PostConstruct;
 @Route(value = "alquileres", layout = MainLayout.class)
 public class RentCarsView extends VerticalLayout {
 	
-	@Autowired
-	private ClienteRestVehiculos service;
+	//@Autowired
+	//private ClienteRestVehiculos service;
 	private VerticalLayout content; 
 		
     @Autowired

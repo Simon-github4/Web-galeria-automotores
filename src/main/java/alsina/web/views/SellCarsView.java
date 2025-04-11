@@ -19,8 +19,8 @@ import jakarta.annotation.PostConstruct;
 @Route(value = "venta", layout = MainLayout.class)
 public class SellCarsView extends VerticalLayout {
 	
-	@Autowired
-	private ClienteRestVehiculos service;
+	//@Autowired
+	//private ClienteRestVehiculos service;
 	private VerticalLayout content;	
     @Autowired
     private DesktopAppService desktopService;
