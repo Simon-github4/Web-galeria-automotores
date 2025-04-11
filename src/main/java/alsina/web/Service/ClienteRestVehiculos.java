@@ -26,8 +26,8 @@ import alsina.web.entities.VehiculoAlquilable;
 import alsina.web.entities.VehiculoVenta;
 
 
-@Scope("singleton")
-@Service
+//@Scope("singleton")
+//@Service
 public class ClienteRestVehiculos {
 
 	protected final Logger logger = LoggerFactory.getLogger(ClienteRestVehiculos.class);
