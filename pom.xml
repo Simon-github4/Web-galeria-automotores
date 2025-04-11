@@ -107,10 +107,14 @@
 			</dependencies>
 			<build>
 				<resources>
-					 <!-- <resource>
+					 <resource>
 					    <directory>src/main/frontend</directory>
 					    <targetPath>META-INF/resources/frontend</targetPath>
-					 </resource>-->
+					 </resource>
+					 <resource>
+					    <directory>src/main/resources/static/images</directory>
+					    <targetPath>META-INF/resources/static/images</targetPath>
+					 </resource>
   				</resources>
 				<plugins>
 					<plugin>
