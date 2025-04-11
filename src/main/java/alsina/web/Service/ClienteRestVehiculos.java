@@ -32,7 +32,7 @@ public class ClienteRestVehiculos {
 
 	protected final Logger logger = LoggerFactory.getLogger(ClienteRestVehiculos.class);
 
-	@Value("${servicevehiculos.address}")
+	//@Value("${servicevehiculos.address}")
 	private String adress;
 	private String branch = "rest/";//podria ser cars
 
