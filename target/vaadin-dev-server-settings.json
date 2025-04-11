@@ -1,0 +1,17 @@
+{
+  "frontendFolder": "C:/Users/simon/git/alsina-Web/src/main/frontend",
+  "themeFolder": "themes",
+  "themeResourceFolder": "C:/Users/simon/git/alsina-Web/src/main/frontend/generated/jar-resources",
+  "staticOutput": "C:/Users/simon/git/alsina-Web/target/classes/META-INF/VAADIN/webapp/VAADIN/static",
+  "generatedFolder": "generated",
+  "statsOutput": "C:\\Users\\simon\\git\\alsina-Web\\target\\classes\\META-INF\\VAADIN\\config",
+  "frontendBundleOutput": "C:\\Users\\simon\\git\\alsina-Web\\target\\classes\\META-INF\\VAADIN\\webapp",
+  "devBundleOutput": "C:/Users/simon/git/alsina-Web/target/dev-bundle/webapp",
+  "devBundleStatsOutput": "C:/Users/simon/git/alsina-Web/target/dev-bundle/config",
+  "jarResourcesFolder": "C:/Users/simon/git/alsina-Web/src/main/frontend/generated/jar-resources",
+  "themeName": "",
+  "clientServiceWorkerSource": "C:\\Users\\simon\\git\\alsina-Web\\target\\sw.ts",
+  "pwaEnabled": false,
+  "offlineEnabled": false,
+  "offlinePath": "'offline.html'"
+}
