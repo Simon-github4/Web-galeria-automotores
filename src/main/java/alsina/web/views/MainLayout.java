@@ -45,7 +45,7 @@ public class MainLayout extends VerticalLayout implements RouterLayout{
 	    	getStyle().set("font-weight", "").set("color", "white").set("font-size", "var(--lumo-font-size-l)")
 	    	.set("padding", "10px"); 
 
-	        Image icon = new Image("/META-INF/resources/static/images/Alsina.png", "");
+	        Image icon = new Image("/resources/static/images/Alsina.png", "");
 	        icon.setHeight("75px");
 	        icon.getStyle().set("border-radius", "16px");
 	        
