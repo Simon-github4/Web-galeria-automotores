@@ -46,7 +46,7 @@ public class MainLayout extends VerticalLayout implements RouterLayout{
 	    	.set("padding", "10px"); 
 
 	        Image icon = new Image(new StreamResource("Alsina.png",
-	        			()->getClass().getResourceAsStream("/images/Alsina.png"))
+	        			()->getClass().getClassLoader().getResourceAsStream("/images/Alsina.png"))
 	        			, "Icon");
 	        icon.setHeight("75px");
 	        icon.getStyle().set("border-radius", "16px");
