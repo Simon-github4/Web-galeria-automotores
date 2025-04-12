@@ -77,7 +77,7 @@ public class ImageCarousel extends Div {
         addDetachListener(e -> stopAutoSwitch());
         addAttachListener(e -> startAutoSwitch());
     	if(this.imageUrls.isEmpty())
-    		currentImage.setSrc("images/default.png");
+    		currentImage.setSrc("https://drive.google.com/uc?export=view&id=1yh0AxshhKRjyKOLbFAwmMcm3bsz4zl6s");//"images/default.png");
     	
     	Dialog lightboxDialog = new Dialog();
     	lightboxDialog.setModal(true);
