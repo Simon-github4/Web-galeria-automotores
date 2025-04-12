@@ -117,7 +117,7 @@
 					 </resource>-->
 					  <resource>
 					    <directory>src/main/resources/static/images</directory>
-					    <targetPath>META-INF/resources/forntend/static/images/</targetPath>
+					    <targetPath>src/main/resources/static/images</targetPath>
 					 </resource>
   				</resources>
 				<plugins>
