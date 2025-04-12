@@ -40,19 +40,17 @@ public class MainLayout extends VerticalLayout implements RouterLayout{
 	    	getStyle().set("font-weight", "").set("color", "white").set("font-size", "var(--lumo-font-size-l)")
 	    	.set("padding", "10px"); 
 
-	    	// Find the application directory
-	    	String basepath = "";
 
 	    	//StreamResource resource = new StreamResource(getClass().getClassLoader().getResourceAsStream(basepath +
 	    	                        //"/WEB-INF/images/image.png"));
 
-	    	Image image = new Image(new ClassPathResource("src/main/resources/static/images/Alsina.png").getPath(), "Image from file");
+	    	//Image image = new Image(new ClassPathResource("src/main/resources/static/images/Alsina.png").getPath(), "Image from file");
 	    	
-	        //Image icon = new Image(("/images/Alsina.png"), "Icon");
-	    	image.setHeight("75px");
-	    	image.getStyle().set("border-radius", "16px");
+	        Image icon = new Image("/images/Alsina.png", "Icon");
+	        icon.setHeight("75px");
+	        icon.getStyle().set("border-radius", "16px");
 	        
-	        Anchor mainLink = new Anchor("", image); 
+	        Anchor mainLink = new Anchor("", icon); 
 	        mainLink.getStyle().set("color", "inherit");
 	        mainLink.setHeightFull();
 	        
