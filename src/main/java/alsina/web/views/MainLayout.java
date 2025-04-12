@@ -1,19 +1,13 @@
 package alsina.web.views;
 
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
+import org.springframework.core.io.ClassPathResource;
 
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.html.Anchor;
 import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
-import com.vaadin.flow.router.Route;
 import com.vaadin.flow.router.RouterLayout;
-import com.vaadin.flow.server.StreamResource;
-import com.vaadin.flow.server.VaadinSession;
 
 public class MainLayout extends VerticalLayout implements RouterLayout{
 
@@ -45,11 +39,19 @@ public class MainLayout extends VerticalLayout implements RouterLayout{
 	    	getStyle().set("font-weight", "").set("color", "white").set("font-size", "var(--lumo-font-size-l)")
 	    	.set("padding", "10px"); 
 
-	        Image icon = new Image(("/images/Alsina.png"), "Icon");
-	        icon.setHeight("75px");
-	        icon.getStyle().set("border-radius", "16px");
+	    	// Find the application directory
+	    	String basepath = "";
+
+	    	//StreamResource resource = new StreamResource(getClass().getClassLoader().getResourceAsStream(basepath +
+	    	                        //"/WEB-INF/images/image.png"));
+
+	    	Image image = new Image(new ClassPathResource("smiley.jpg").getPath(), "Image from file");
+	    	
+	        //Image icon = new Image(("/images/Alsina.png"), "Icon");
+	    	image.setHeight("75px");
+	    	image.getStyle().set("border-radius", "16px");
 	        
-	        Anchor mainLink = new Anchor("", icon); 
+	        Anchor mainLink = new Anchor("", image); 
 	        mainLink.getStyle().set("color", "inherit");
 	        mainLink.setHeightFull();
 	        

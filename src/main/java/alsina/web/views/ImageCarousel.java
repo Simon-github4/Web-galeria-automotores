@@ -16,6 +16,7 @@ import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.icon.Icon;
 import com.vaadin.flow.component.icon.VaadinIcon;
 import com.vaadin.flow.server.StreamResource;
+import com.vaadin.flow.server.VaadinService;
 import com.vaadin.flow.shared.Registration;
 
 public class ImageCarousel extends Div {
@@ -76,7 +77,7 @@ public class ImageCarousel extends Div {
         addDetachListener(e -> stopAutoSwitch());
         addAttachListener(e -> startAutoSwitch());
     	if(this.imageUrls.isEmpty())
-    		currentImage.setSrc("static/images/default.png");
+    		currentImage.setSrc(VaadinService.getCurrent().getStaticResource("/static/images/Alsina.png").getPath());//"static/images/default.png");
     	
     	Dialog lightboxDialog = new Dialog();
     	lightboxDialog.setModal(true);
