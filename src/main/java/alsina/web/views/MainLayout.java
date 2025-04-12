@@ -45,7 +45,7 @@ public class MainLayout extends VerticalLayout implements RouterLayout{
 	    	//StreamResource resource = new StreamResource(getClass().getClassLoader().getResourceAsStream(basepath +
 	    	                        //"/WEB-INF/images/image.png"));
 
-	    	Image image = new Image(new ClassPathResource("smiley.jpg").getPath(), "Image from file");
+	    	Image image = new Image(new ClassPathResource("src/main/resources/static/images/Alsina.png").getPath(), "Image from file");
 	    	
 	        //Image icon = new Image(("/images/Alsina.png"), "Icon");
 	    	image.setHeight("75px");
