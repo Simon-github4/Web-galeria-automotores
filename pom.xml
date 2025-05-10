@@ -117,7 +117,7 @@
 					 </resource>-->
 					  <resource>
 					    <directory>src/main/resources/static/images</directory>
-					    <targetPath>/images</targetPath>
+					    <targetPath>./images</targetPath>
 					 </resource>
   				</resources>
 				<plugins>
