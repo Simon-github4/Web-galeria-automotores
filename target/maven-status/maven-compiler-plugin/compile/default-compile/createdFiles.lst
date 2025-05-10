@@ -27,3 +27,4 @@ alsina\web\Service\DesktopAppService.class
 alsina\web\views\SellCarsView.class
 alsina\web\views\VehicleCard.class
 alsina\web\entities\VehiculoVenta.class
+alsina\web\Service\ControllerRestDesktopApp$4.class
