@@ -20,6 +20,7 @@ public class DesktopAppService {
     private List<VehiculoVenta> sellVehicles = new ArrayList<>();
     private List<VehiculoAlquilable> rentVehicles = new ArrayList<>();
     private Map<String, Set<LocalDate>> unavailableDatesPerVehicle = new HashMap<>();
+    private Map<String, List<byte[]>> images = new HashMap<>();
 
     public List<VehiculoVenta> getSellVehicles() {
 		return sellVehicles;
@@ -32,10 +33,19 @@ public class DesktopAppService {
 		return unavailableDatesPerVehicle;
 	}
 
+	public Map<String, List<byte[]>> getImages(){
+		return this.images;
+	}
+	
 	public void updateData(List<VehiculoVenta> sellVehicles,List<VehiculoAlquilable> rentVehicles, Map<String, Set<LocalDate>> unavailableMap) {
         this.sellVehicles = sellVehicles;
         this.rentVehicles = rentVehicles;
         this.unavailableDatesPerVehicle = unavailableMap;
     }
+	
+	public void updateDate(Map<String, List<byte[]>> map) {
+		this.images = map;
+	}
+	
 }
 

@@ -1,11 +1,16 @@
 package alsina.web.views;
 
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
+import java.util.UUID;
+
+import javax.imageio.ImageIO;
 
 import com.vaadin.flow.component.ClientCallable;
 import com.vaadin.flow.component.UI;
@@ -16,12 +21,11 @@ import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.icon.Icon;
 import com.vaadin.flow.component.icon.VaadinIcon;
 import com.vaadin.flow.server.StreamResource;
-import com.vaadin.flow.server.VaadinService;
 import com.vaadin.flow.shared.Registration;
 
 public class ImageCarousel extends Div {
 	
-    private List<StreamResource> imageUrls;
+    private List<StreamResource> images = new ArrayList<>();//StreamResource
     private int currentIndex = 0;
     private Image currentImage;
     private Button prevButton;
@@ -30,16 +34,22 @@ public class ImageCarousel extends Div {
     private int switchInterval = 10000;
     private Registration autoAdvanceRegistration;
 
-    public ImageCarousel(List<String> imageUrls) {
+    public ImageCarousel(List<byte[]> bytes) {
     	getStyle()
 	    	.set("position", "relative")
 	        .setHeight("200px")
 	        .set("width", "100%");
 
-    	this.imageUrls = imageUrls.stream()
-					               .map(this::createStreamResourceNio)
-					               .collect(Collectors.toList());
-    	
+    	for (byte[] imgBytes : bytes) {
+    		if (imgBytes != null && imgBytes.length > 0) {
+    			String filename = UUID.randomUUID() + ".png";
+   	            StreamResource resource = new StreamResource(filename, 
+    	                () -> new ByteArrayInputStream(imgBytes));
+   	            resource.setContentType("image/png");
+   	            images.add(resource);
+    	        }
+    	}
+
         Div imageContainer = new Div();
         imageContainer.getStyle()
         	.set("overflow", "hidden")  
@@ -76,8 +86,9 @@ public class ImageCarousel extends Div {
         updateImage();
         addDetachListener(e -> stopAutoSwitch());
         addAttachListener(e -> startAutoSwitch());
-    	if(this.imageUrls.isEmpty())
-    		currentImage.setSrc("https://drive.google.com/uc?export=view&id=1yh0AxshhKRjyKOLbFAwmMcm3bsz4zl6s");//"images/default.png");
+    	
+        if(this.images.isEmpty())
+    		currentImage.setSrc("images/default.png");//"images/default.png");
     	
     	Dialog lightboxDialog = new Dialog();
     	lightboxDialog.setModal(true);
@@ -92,7 +103,7 @@ public class ImageCarousel extends Div {
     	enlargedImage.getStyle().set("object-fit", "contain");
 
     	currentImage.addClickListener(e -> {
-    	    if (!imageUrls.isEmpty()) {
+    	    if (!images.isEmpty()) {
     	        enlargedImage.setSrc(currentImage.getSrc());
     	        enlargedImage.setAlt("Imagen ampliada " + (currentIndex + 1));
     	        lightboxDialog.open();
@@ -128,26 +139,25 @@ public class ImageCarousel extends Div {
         return b; 
     }
     private void showPreviousImage() {
-        	currentIndex = (currentIndex - 1 + imageUrls.size()) % imageUrls.size();
+        	currentIndex = (currentIndex - 1 + images.size()) % images.size();
         	animateTransition();
     }  
     private void showNextImage() {
-            currentIndex = (currentIndex + 1) % imageUrls.size();
+            currentIndex = (currentIndex + 1) % images.size();
             animateTransition();
     }
     
     private void updateImage() {
-        if (!imageUrls.isEmpty()) {
-            currentImage.setSrc(imageUrls.get(currentIndex));
+        if (!images.isEmpty()) {
+            currentImage.setSrc(images.get(currentIndex));
             currentImage.setAlt("Vehicle image " + (currentIndex + 1));
         }
-        // Hide buttons if only one image
-        prevButton.setVisible(imageUrls.size() > 1);
-        nextButton.setVisible(imageUrls.size() > 1);
+        prevButton.setVisible(images.size() > 1);
+        nextButton.setVisible(images.size() > 1);
     }
     
     private void startAutoSwitch() {
-        if (imageUrls.size() <= 1) return;
+        if (images.size() <= 1) return;
     	stopAutoSwitch();
     	
     	UI ui = UI.getCurrent();
@@ -207,7 +217,7 @@ public class ImageCarousel extends Div {
         prevButton.setEnabled(true);
         nextButton.setEnabled(true);
    }
-
+    
     private StreamResource createStreamResourceNio(String fileUrl) {
         String s = fileUrl.replaceAll("%20", " ");
     	Path filePath = Paths.get(s.replaceFirst("file:///C", "C"));

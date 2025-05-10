@@ -59,7 +59,7 @@ public class SellCarsView extends VerticalLayout {
     	content.add(cardContainer);
 
     	for (VehiculoVenta vehicle : vehicles) {
-    	    VehicleCard card = new VehicleCard(vehicle, null);
+    	    VehicleCard card = new VehicleCard(vehicle, null, desktopService);
     	    card.setMaxWidth("325px");
     	    card.setWidth("90%");
     	    card.getStyle().set("margin-bottom", "10px"); 

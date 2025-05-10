@@ -61,8 +61,7 @@ public class RentCarsView extends VerticalLayout {
     	content.add(cardContainer);
 
     	for (VehiculoAlquilable vehicle : vehicles) {
-    	    VehicleCard card = new VehicleCard(vehicle, desktopService.getUnavailableDatesPerVehicle().get(vehicle.getId().toString()));
-    	    System.out.println(vehicle +"\n"+ desktopService.getUnavailableDatesPerVehicle().get(vehicle.getId().toString()));
+    	    VehicleCard card = new VehicleCard(vehicle, desktopService.getUnavailableDatesPerVehicle().get(vehicle.getId().toString()), desktopService);
     	    card.setMaxWidth("325px");
     	    card.setWidth("90%");
     	    card.getStyle().set("margin-bottom", "10px"); 

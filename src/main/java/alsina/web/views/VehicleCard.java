@@ -6,11 +6,12 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.text.NumberFormat;
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import java.util.Set;
 import java.util.stream.Collectors;
+
+import org.springframework.beans.factory.annotation.Autowired;
 
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.details.Details;
@@ -25,16 +26,23 @@ import com.vaadin.flow.component.icon.VaadinIcon;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
+import alsina.web.Service.DesktopAppService;
 import alsina.web.entities.Vehiculo;
 import alsina.web.entities.VehiculoAlquilable;
 import alsina.web.entities.VehiculoVenta;
+import jakarta.annotation.PostConstruct;
 
 public class VehicleCard extends VerticalLayout {
 
 	private final static String baseUrl = "C:\\Users\\simon\\OneDrive\\Imágenes\\FOTOS_";
 	private Set<LocalDate> dates;
-	public VehicleCard(Vehiculo vehicle, Set<LocalDate> dates) {
+    private Vehiculo vehicle;
+    private DesktopAppService desktopService;
+	
+	public VehicleCard(Vehiculo vehicle, Set<LocalDate> dates, DesktopAppService desktopService) {
 		this.dates = dates;
+        this.vehicle = vehicle;
+        this.desktopService = desktopService;
         setSpacing(false);
         setPadding(false);
         setDefaultHorizontalComponentAlignment(Alignment.STRETCH);
@@ -44,12 +52,11 @@ public class VehicleCard extends VerticalLayout {
         .set("box-shadow", "0 2px 4px rgba(0,0,0,0.1)")
         .set("transition", "box-shadow 0.3s ease, transform 0.3s ease");
 
-        ImageCarousel carousel= null;
-		try {
-			carousel = new ImageCarousel(getFileUrls(baseUrl.concat(vehicle.getPlate())));
-		}catch (IOException e) {
-			carousel = new ImageCarousel(new ArrayList<String>());			
-		}
+        init();
+    }
+
+	private void init() {
+        ImageCarousel carousel = new ImageCarousel(desktopService.getImages().get(vehicle.getPlate()));//getFileUrls(baseUrl.concat(vehicle.getPlate())));
 
         VerticalLayout cardText = new VerticalLayout();
         cardText.getStyle().set("padding", "16px"); 
@@ -88,8 +95,8 @@ public class VehicleCard extends VerticalLayout {
         else
         	setDetails(cardText, (VehiculoAlquilable)vehicle);
         	
-        add(carousel, cardText);
-    }
+        this.add(carousel, cardText);
+	}
     
 	private VerticalLayout setDetails(VerticalLayout cardText, VehiculoVenta vehicle) {
         Span price = new Span("Valor Aproximado: ".concat(formatPrice(((VehiculoVenta) vehicle).getSellPrice())));

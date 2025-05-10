@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
@@ -24,6 +25,7 @@ import alsina.web.entities.VehiculoAlquilable;
 import alsina.web.entities.VehiculoVenta;
 import alsina.web.views.GeneralInfoView;
 import alsina.web.views.MainLayout;
+import org.springframework.web.multipart.MultipartFile;
 
 @RestController
 @RequestMapping(path = "/client/data")
@@ -50,10 +52,15 @@ public class ControllerRestDesktopApp {
 		        requestedData.get("unavailableDatesPerVehicle"),
 		        new TypeReference<Map<String, Set<LocalDate>>>() {}
 		    );
-
+		Map<String, List<byte[]>> images = objectMapper.convertValue(
+		        requestedData.get("images"),
+		        new TypeReference <Map<String, List<byte[]>>>() {}
+		    );
+		
 		rentCarDataStore.updateData(vehiculos, vehiculosAlq, unavailableMap);
+		rentCarDataStore.updateDate(images);
 	}
-
+	
 	@GetMapping(path= "check")
 	public String check() {
 		return "all ok";
