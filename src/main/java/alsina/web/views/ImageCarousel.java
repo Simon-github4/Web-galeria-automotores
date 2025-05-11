@@ -87,12 +87,12 @@ public class ImageCarousel extends Div {
         addDetachListener(e -> stopAutoSwitch());
         addAttachListener(e -> startAutoSwitch());
     	
-        StreamResource imageResource = new StreamResource("default.png",
-                () -> getClass().getResourceAsStream("/images/default.png"));
-        imageResource.setContentType("image/png");
+        //StreamResource imageResource = new StreamResource("default.png",
+        //        () -> getClass().getResourceAsStream("/images/default.png"));
+        //imageResource.setContentType("image/png");
 
         if(this.images.isEmpty())
-    		currentImage.setSrc(imageResource);//"images/default.png");
+    		currentImage.setSrc("/images/default.png");//"images/default.png");
        
         String contextPath = UI.getCurrent().getElement().getProperty("baseURI");
         System.out.println(contextPath);
