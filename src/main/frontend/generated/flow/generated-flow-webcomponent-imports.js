@@ -12,10 +12,10 @@ import 'Frontend/generated/jar-resources/ReactRouterOutletElement.tsx';
 
 const loadOnDemand = (key) => {
   const pending = [];
-  if (key === '4f32e6ea821fd553dcd3a97f54fdba5fd9b132e5098b7ea509e8741df6774ffd') {
+  if (key === 'b357c01f9f64b5e0cdb61a4efe50f89a7ccb0f7ee6e0358d40240194281de2d4') {
     pending.push(import('./chunks/chunk-f0230b3617d5c73e20e63cf7c0430bdd25d625e285e84e6510fb95f543c762d7.js'));
   }
-  if (key === 'b357c01f9f64b5e0cdb61a4efe50f89a7ccb0f7ee6e0358d40240194281de2d4') {
+  if (key === '4f32e6ea821fd553dcd3a97f54fdba5fd9b132e5098b7ea509e8741df6774ffd') {
     pending.push(import('./chunks/chunk-f0230b3617d5c73e20e63cf7c0430bdd25d625e285e84e6510fb95f543c762d7.js'));
   }
   return Promise.all(pending);

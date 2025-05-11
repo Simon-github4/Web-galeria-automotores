@@ -89,7 +89,8 @@ public class ImageCarousel extends Div {
     	
         StreamResource imageResource = new StreamResource("auto11.jpg",
                 () -> getClass().getResourceAsStream("/META-INF/resources/images/auto1.jpg"));
-            
+        imageResource.setContentType("image/png");
+
         if(this.images.isEmpty())
     		currentImage.setSrc(imageResource);//"images/default.png");
        

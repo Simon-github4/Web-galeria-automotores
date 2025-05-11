@@ -50,7 +50,8 @@ public class MainLayout extends VerticalLayout implements RouterLayout{
 	        icon.setHeight("75px");
 	        icon.getStyle().set("border-radius", "16px");
 	        
-	        
+	       //setContentType("image/png");
+
 	    
 	        Anchor mainLink = new Anchor("", icon); 
 	        mainLink.getStyle().set("color", "inherit");

@@ -116,7 +116,7 @@
 					    <targetPath>META-INF/resources/frontend</targetPath>
 					 </resource>-->
 					  <resource>
-					    <directory>src/main/resources/META-INF/images</directory>
+					    <directory>src/main/resources/META-INF</directory>
 					 </resource>
   				</resources>
 				<plugins>
