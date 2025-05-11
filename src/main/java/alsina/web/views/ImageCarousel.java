@@ -87,8 +87,8 @@ public class ImageCarousel extends Div {
         addDetachListener(e -> stopAutoSwitch());
         addAttachListener(e -> startAutoSwitch());
     	
-        StreamResource imageResource = new StreamResource("auto11.jpg",
-                () -> getClass().getResourceAsStream("/META-INF/resources/images/auto1.jpg"));
+        StreamResource imageResource = new StreamResource("default.png",
+                () -> getClass().getResourceAsStream("/images/default.png"));
         imageResource.setContentType("image/png");
 
         if(this.images.isEmpty())

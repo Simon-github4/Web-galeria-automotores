@@ -114,10 +114,10 @@
 					 <resource>
 					    <directory>src/main/frontend</directory>
 					    <targetPath>META-INF/resources/frontend</targetPath>
-					 </resource>-->
-					  <resource>
-					    <directory>src/main/resources/META-INF</directory>
 					 </resource>
+					  <resource>
+					    <directory>src/main/resources/static</directory>
+					 </resource>-->
   				</resources>
 				<plugins>
 					<plugin>
