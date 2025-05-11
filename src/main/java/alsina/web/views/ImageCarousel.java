@@ -87,9 +87,15 @@ public class ImageCarousel extends Div {
         addDetachListener(e -> stopAutoSwitch());
         addAttachListener(e -> startAutoSwitch());
     	
+        StreamResource imageResource = new StreamResource("auto11.jpg",
+                () -> getClass().getResourceAsStream("/META-INF/resources/images/auto1.jpg"));
+            
         if(this.images.isEmpty())
-    		currentImage.setSrc("/BOOT-INF/classes/images/default.png");//"images/default.png");
-    	
+    		currentImage.setSrc(imageResource);//"images/default.png");
+       
+        String contextPath = UI.getCurrent().getElement().getProperty("baseURI");
+        System.out.println(contextPath);
+        
     	Dialog lightboxDialog = new Dialog();
     	lightboxDialog.setModal(true);
     	lightboxDialog.setCloseOnOutsideClick(true);
