@@ -88,7 +88,7 @@ public class ImageCarousel extends Div {
         addAttachListener(e -> startAutoSwitch());
     	
         if(this.images.isEmpty())
-    		currentImage.setSrc("BOOT-INF/classes/images/default.png");//"images/default.png");
+    		currentImage.setSrc("/BOOT-INF/classes/images/default.png");//"images/default.png");
     	
     	Dialog lightboxDialog = new Dialog();
     	lightboxDialog.setModal(true);
